@@ -1,0 +1,315 @@
+body {
+  font-family: 'Playfair Display', serif;
+  margin: 0;
+  background-color: #f5f5dc;
+  color: #333;
+  text-align: center;
+}
+
+.store-header {
+  background-color: black;
+  padding: 40px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateY(-30px);}
+  to { opacity: 1; transform: translateY(0)}
+}
+
+.store-title{
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: beige;
+  margin: 0;
+  animation: fadeSlide 1.5s ease-out;
+}
+
+.store-main{
+  padding: 20px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0;}
+  to { opacity: 1;}
+}
+
+.slogan{
+  font-size: 1.2rem;
+  margin: 20px 0;
+  color: black;
+  animation: fadeIn 2s ease-in;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0;}
+  to { transform: translateY(0); opacity: 1;}
+}
+
+.construccion{
+  font-size: 1em;
+  color: black;
+  margin-top: 10px;
+  text-align: center;
+  animation: slideUp 1.5s ease-out;
+}
+
+.whatsapp-link{
+  font-size: 2rem;
+  color: #25d366;
+  text-decoration: none;
+  text-align: left;
+}
+
+.filtros {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: beige;
+}
+
+.filtros label {
+  font-weight: bold;
+}
+
+.catalogo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.producto {
+  background-color: black;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 1rem;
+  width: 250px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.producto img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+.ropas {
+  color: beige;
+  animation: fadeIn 2s ease-in;
+  
+}
+
+.precio {
+  font-weight: bold;
+  color: beige;
+   animation: fadeIn 2s ease-in;
+}
+
+footer {
+  background-color: #eee;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 600px) {
+  .catalogo {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .filtros {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+
+
+.carrito {
+  background-color: black;
+  padding: 1rem 2rem;
+  margin: 2rem;
+  border-top: 2px solid #ccc;
+  border-radius: 8px;
+   animation: fadeIn 2s ease-in;
+}
+
+.buscador {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+}
+
+.buscador::placeholder {
+  transition: opacity 0.5s ease-in-out;
+  color: #888;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.8);
+}
+
+.modal-contenido {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 2rem;
+}
+
+.modal-contenido img {
+  max-width: 300px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #fff;
+}
+
+.cerrar {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.disponibilidad {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: black;
+  font-weight: bold;
+  padding: 0.5rem;
+  border-radius: 0 0 8px 0;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+  pointer-events: none;
+}
+
+.producto {
+  position: relative;
+}
+
+.producto:hover .disponibilidad {
+  opacity: 1;
+}
+
+.disponibilidad.agotado span { color: red; }
+.disponibilidad.pocas span { color: orange; }
+.disponibilidad.stock span { color: green; }
+
+
+@media (max-width: 600px) {
+  .disponibilidad {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+.carrito-panel {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 300px;
+  height: 100%;
+  background-color: #f5f5dc;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.3);
+  padding: 1rem;
+  transition: right 0.4s ease-in-out;
+  z-index: 9999;
+  overflow-y: auto;
+}
+
+.carrito-panel.abierto {
+  right: 0;
+}
+
+.carrito-items div {
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+}
+
+.boton-carrito {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  background-color: #c97c5d;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .carrito-panel {
+    width: 350px;
+    padding: 1.5rem;
+  }
+
+  #boton-carrito {
+    top: 0px;
+    right: 10px;
+    font-size: 30px;
+    
+    
+  }
+}
+
+.nav {
+  color: beige;
+  margin: 0px 15px;
+  text-decoration: none;
+}
+
+.nosotros{
+  font-size: 30px;
+}
+
+.banner{
+  background-color: black;
+  color: beige;
+  text-align: center;
+  font-size: 20px;
+
+}
+
+.banner {
+  position: relative;
+  width: 100%;
+  max-width: 800px; /* ajusta el tamaño */
+  height: 400px;
+  overflow: hidden;
+  margin: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.banner img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.banner img.activo {
+  opacity: 1;
+}
